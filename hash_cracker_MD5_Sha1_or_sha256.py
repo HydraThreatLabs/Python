@@ -7,14 +7,14 @@ import pyfiglet
 ascii_banner = pyfiglet.figlet_format("Anna's \nPython 4 Pentesters \nHASH CRACKER")
 print(ascii_banner)
 
-# Ustawiamy lokalizację pliku słownika
+# Set the location of the wordlist file
 wordlist_location = 'wordlist.txt'
 
-# Pytamy o hash i jego typ
+# Ask for the hash and its type
 hash_input = input('Enter hash to be cracked: ').strip()
 hash_type = input('Enter hash type (md5 / sha1 / sha256): ').strip().lower()
 
-# Funkcja wybierająca odpowiednią funkcję hashującą
+# Function that selects the appropriate hashing function
 def get_hash_function(htype):
     if htype == 'md5':
         return hashlib.md5
@@ -28,7 +28,7 @@ def get_hash_function(htype):
 
 hash_function = get_hash_function(hash_type)
 
-# Przeszukujemy słownik
+# Search through the wordlist
 try:
     with open(wordlist_location, 'r') as file:
         for line in file:
